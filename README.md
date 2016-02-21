@@ -16,7 +16,8 @@ typecho + pgsql 镜像
 
 ### 数据库
 镜像中默认配置博客使用 PGSQL, 相关环境变量在 `docker-compose.yml` 中设置
-更多内容参考 [传送门](https://hub.docker.com/_/postgres/)
+
+[postgres配置](https://hub.docker.com/_/postgres/)
 
 ### typecho
 默认情况下
