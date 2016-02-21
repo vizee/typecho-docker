@@ -1,0 +1,17 @@
+db:
+    image: postgres:9.5
+    environment:
+        - POSTGRES_USER=typechoer
+        - POSTGRES_PASSWORD=typechopwd
+        - POSTGRES_DB=typechodb
+        - PGDATA=/pgsql/dbdata
+    volumes:
+        - ./dbdata:/pgsql/dbdata
+typecho:
+    build: .
+    volumes:
+        - ./app:/app/typecho
+    ports:
+        - "80:80"
+    links:
+        - db
