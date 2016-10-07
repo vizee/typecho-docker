@@ -13,6 +13,5 @@ if [ ! -d app/ ]; then
 fi
 
 docker-compose build
-docker-compose up -d
 
 popd > /dev/null

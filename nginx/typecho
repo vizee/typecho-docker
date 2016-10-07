@@ -1,6 +1,6 @@
 server {
 	listen 80 default_server;
-    #listen [::]:80 default_server ipv6only=on;
+#listen [::]:80 default_server ipv6only=on;
 	root /app/typecho/;
 	index index.php;
 	server_name localhost;
@@ -8,10 +8,12 @@ server {
 		try_files $uri $uri/ /index.php?$query_string;
 	}
 	location ~ \.php$ {
-		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
-		fastcgi_index index.php;
-		include fastcgi_params;
+        include snippets/fastcgi-php.conf;
+	
+        #fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        #fastcgi_index index.php;
+        #include fastcgi_params;
 	}
 	location ~ /\. {
 		deny all;
